@@ -1,0 +1,588 @@
+<?php $paymentinfo = $this->paymentinfo; ?>
+
+<div id="mycontainer"  class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12" style="padding-top: 20px" >
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>View Contract Agreement</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <form id="form" class="form-horizontal form-label-left" novalidate autocomplete="off">
+
+                    <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" >Enter CA No. <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input id='ca_no' class="form-control col-md-7 col-xs-12" value="<?= $this->appdata['CA_NO'] ?>" readonly type="text">
+                        </div>
+                    </div>
+
+                    <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" >Name of Work <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" class="form-control col-md-7 col-xs-12" value="<?= $this->appdata['CA_NAME'] ?>" readonly>
+                        </div>
+                    </div>
+
+                    <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Select Sector <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" class="form-control col-md-7 col-xs-12" value="<?= $this->appdata['SECTOR_NAME'] ?>" readonly>
+                        </div>
+                    </div>
+
+
+                    <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Select Sub-Division <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" class="form-control col-md-7 col-xs-12" value="<?= $this->appdata['SUB_DIV_NAME'] ?>" readonly>
+                        </div>
+                    </div>
+
+
+                    <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Approved Estimate Cost <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" class="form-control col-md-7 col-xs-12" value="<?= $this->appdata['EST_COST'] ?>" readonly>
+                        </div>
+                    </div>
+                    <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Cost in Words <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" id="in_words" readonly class="form-control col-md-7 col-xs-12">
+                        </div>
+                    </div>
+
+                    <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Approving Authority <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" class="form-control col-md-7 col-xs-12" value="<?= $this->appdata['USER_TYPE_NAME'] ?>" readonly>
+                        </div>
+                    </div>
+
+                    <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Procurement Nature <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" class="form-control col-md-7 col-xs-12" value="<?= $this->appdata['PROC_TYPE_NAME'] ?>" readonly>
+                        </div>
+                    </div>
+
+
+                    <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Procurement Method <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" class="form-control col-md-7 col-xs-12" value="<?= $this->appdata['PROC_METHOD_NAME'] ?>" readonly>
+                        </div>
+                    </div>
+
+                    <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Work Order Value <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input id="work_value" type="text" class="form-control col-md-7 col-xs-12" value="<?= $this->appdata['WORK_VALUE'] ?>" readonly>
+                        </div>
+                    </div>
+
+                    <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Value in Words <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" id="in_words_2" readonly class="form-control col-md-7 col-xs-12">
+                        </div>
+                    </div>
+
+                    <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Select Contractor <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" class="form-control col-md-7 col-xs-12" value="<?= $this->appdata['NAME'] ?>" readonly>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Signing Date <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" class="form-control col-md-7 col-xs-12" value="<?= $this->appdata['SIGN_DATE'] ?>" readonly>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Completion Date <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" class="form-control col-md-7 col-xs-12" value="<?= $this->appdata['COMPLETE_DATE'] ?>" readonly>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="col-md-12 col-sm-12 col-xs-12" style="padding-top: 20px" >
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Performance Security Information</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+
+                <form class="form-horizontal form-label-left" novalidate autocomplete="off" >
+
+                    <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Select Payment Method <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input class="form-control col-md-7 col-xs-12" readonly value="<?= $paymentinfo['PAYMENT_METHOD_NAME'] ?>" required="required" type="text">
+                        </div>
+                    </div>
+                    <div class="item form-group">    
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Bank <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input class="form-control col-md-7 col-xs-12" readonly value="<?= $paymentinfo['BANK_NAME'] ?>" required="required" type="text">
+                        </div>
+                    </div>
+                    <div class="item form-group">    
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Branch <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input class="form-control col-md-7 col-xs-12" readonly value="<?= $paymentinfo['BRANCH'] ?>" required="required" type="text">
+                        </div>
+                    </div>
+                    <div class="item form-group">    
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Performance Security No. <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input class="form-control col-md-7 col-xs-12" readonly value="<?= $paymentinfo['PAYORDER_NO'] ?>" required="required" type="text">
+                        </div>
+                    </div>
+                    <div class="item form-group">    
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Date <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input class="form-control col-md-7 col-xs-12" readonly value="<?= $paymentinfo['PAY_DATE'] ?>" required="required" type="text">
+                        </div>
+                    </div>
+                    <div class="item form-group">    
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Amount <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input class="form-control col-md-7 col-xs-12" readonly value="<?= $paymentinfo['AMOUNT'] ?>" required="required" type="text">
+                        </div>
+                    </div>
+
+
+                    <div class="ln_solid"></div>
+
+                    <div class="form-group">
+                        <div class="col-md-6 col-md-offset-3">
+                            <a href="index" class="btn btn-primary">Back</a>
+                            <?php if ($paymentinfo['STATUS'] == 'N') { ?>
+                                <a href="divaccbill?no=<?= $this->ca_no ?>&pay_id=<?= $paymentinfo['PAYMENT_ID'] ?>" class="btn btn-success">Finalize</a>
+                            <?php } ?>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="col-md-12 col-sm-12 col-xs-12" style="padding-top: 20px">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Payment History [<?= $this->ca_no ?>]</h2>
+                <ul class="nav navbar-right panel_toolbox">
+
+                </ul>
+                <div class="clearfix"></div>
+
+
+
+            </div>
+            <div class="x_content">
+
+
+
+                <table id="datatable" class="table table-striped table-bordered">
+                    <thead>
+                        <tr >
+                            <th style="text-align:center">SL#</th>
+                            <th style="text-align:center">MB. NO</th>
+                            <th style="text-align:center">MB. PAGE NO</th>
+                            <th style="text-align:center">MB. DATE</th>
+                            <th style="text-align:center">CHEQUE NO.</th>
+                            <th style="text-align:center">VOUCHER NO.</th>
+                            <th style="text-align:center">BILL</th>
+                            <th style="text-align:center">AMOUNT</th>
+                            <th style="text-align:center" >PERCENTAGE</th>
+                            <th style="text-align:center" >PAYMENT STATUS</th>
+                            <th style="text-align:center" >RETENTION</th>
+                            <th style="text-align:center" >VAT</th>
+                            <th style="text-align:center" >IT</th>
+                            <th style="text-align:center" >NET PAYABLE</th>
+                            <th style="text-align:center" >ACTION</th>
+                        </tr>
+                    </thead>
+
+
+                    <tbody>
+                        <?php
+                        $i = 1;
+                        $sum = 0;
+                        $sum2 = 0;
+                        $sum_net = 0;
+                        $sum_ret = 0;
+                        $sum_vat = 0;
+                        $sum_it = 0;
+                        foreach ($this->allpayment as $app) {
+                            ?>
+                            <tr>
+                                <td style="text-align:center"><?= $i++; ?></td>
+                                <td style="text-align:center"><?= $app['MB_NO'] ?></td>
+                                <td style="text-align:center"><?= $app['MB_PG_NO'] ?></td>
+                                <td style="text-align:center"><?= $app['MB_DATE'] ?></td>
+                                <td style="text-align:center"><?= $app['CHEQUE_NO'] ?></td>
+                                <td style="text-align:center"><?= $app['VOUCHER_NO'] ?></td>
+                                <td style="text-align:center"><?= $app['RN_BILL_NAME'] ?></td>
+                                <td style="text-align:right"><?php
+                                    $sum2 = $sum2 + $app['AMOUNT'];
+                                    echo number_format($app['AMOUNT'])
+                                    ?>.৳</td>
+                                <td style="text-align:center"><?php
+                                    $percnt = ($app['AMOUNT'] / $this->appdata['WORK_VALUE']) * 100;
+                                    $sum = $sum + $percnt;
+                                    echo number_format($percnt) . "%";
+                                    ?></td>
+                                <td style="text-align:center"><?php if ($app['STATUS'] == 'Y') { ?>
+                                        <a style="color:green">PAID</a>
+                                    <?php } else {
+                                        ?><a style="color:red">UNPAID</a>
+                                    <?php }
+                                    ?>
+                                </td>
+                                <td style="text-align:right"><?php
+                                    $sum_ret = $sum_ret + $app['RETENATION'];
+                                    echo number_format($app['RETENATION']);
+                                    ?></td>
+                                <td style="text-align:right"><?php
+                                    $sum_vat = $sum_vat + $app['VAT'];
+                                    echo number_format($app['VAT']);
+                                    ?></td>
+                                <td style="text-align:right"><?php
+                                    $sum_it = $sum_it + $app['IT'];
+                                    echo number_format($app['IT']);
+                                    ?></td>
+                                <td style="text-align:right"><?php
+                                    $net = $app['AMOUNT'] - $app['RETENATION'] - $app['VAT'];
+                                    $sum_net = $sum_net + $net;
+                                    echo $net;
+                                    ?></td>
+                                <td>
+                                    <?php if ($this->user_type == 4 and ! $app['MB_NO'] and $app['STATUS'] == 'N') { ?>
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" onclick="loadmodal(<?= $app['BILL_ID'] ?>)" data-target=".bs-example-modal-lg">Create Bill</button>                  
+                                        <div id="o_newbill">
+                                        </div>
+                                    <?php } elseif ($this->user_type == 4 and $app['MB_NO'] and $app['STATUS'] == 'N') { ?>
+                                        <button type="button" class="btn btn-info " data-toggle="modal" onclick="loadmodal(<?= $app['BILL_ID'] ?>)" data-target=".bs-example-modal-lg">Update Bill</button>                  
+                                        <div id="o_newbill">
+                                        </div>
+
+                                        <button type="button" class="btn btn-success " data-toggle="modal" onclick="finalizebill(<?= $app['BILL_ID']; ?>, <?= $app['AMOUNT'] ?>)" data-target=".bs-example-modal-sm">Finalize Bill</button>                  
+                                        <div id="o_finalizebill">
+                                        </div>
+                                    <?php } ?>
+                                </td>
+
+                            </tr>
+                        <?php } ?>
+                        <tr><td style="text-align:right" colspan="7"><b>CUMULATIVE :</b></td>
+                            <td style="text-align:right"><?= number_format($sum2) ?>.৳</td>
+                            <td style="text-align:center"><?= number_format($sum) . "%" ?></td>
+                            <td ></td>
+                            <td style="text-align:right"><?= number_format($sum_ret) ?></td>
+                            <td style="text-align:right"><?= number_format($sum_vat) ?></td>
+                            <td style="text-align:right"><?= number_format($sum_it) ?></td>
+                            <td style="text-align:right"><?= number_format($sum_net) ?></td>
+                            <td ></td>
+
+                        </tr>
+
+                        <tr><td style="text-align:right" colspan="7"><b>REMAINING :</b></td>
+                            <td style="text-align:right"><?= number_format($this->appdata['WORK_VALUE'] - $sum2) ?>.৳</td>
+                            <td style="text-align:center"><?= number_format(100 - $sum) . "%" ?></td>
+                            <td colspan="8"></td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <?php if ($this->appdata['STATUS'] == 'Y') { ?>
+                <div class="col-md-12" style="text-align: center">
+                    
+                    <?php if($this->appdata['RET_RELEASE'] == 'N'){?>
+                    <button type="button" class="btn btn-success" onclick="releaseretention()" data-toggle="modal" data-target=".bs-example-modal-lg">Release Retention Money</button>
+                    <div id = "o_retention"></div>
+                    <?php }else{?>
+                    <button type="button" class="btn btn-success" onclick="releaseinfo()" data-toggle="modal" data-target=".bs-example-modal-lg">Retention Release Information</button>
+                    <div id = "o_releaseinfo"></div>
+                    <?php }?>
+                    
+                    <a href="<?= $this->baseUrl() ?>/staff/index" class="btn btn-primary">Go Back</a> 
+                </div>
+            <?php } ?>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+
+<script type="text/javascript">
+    window.onload = function () {
+        number2text(<?= $this->appdata['EST_COST'] ?>);
+        number2text2(<?= $this->appdata['WORK_VALUE'] ?>);
+    }
+
+    $(document).ready(function () {
+        $('#datatable').dataTable();
+        $('#datatable-keytable').DataTable({
+            keys: true
+        });
+        $('#datatable-responsive').DataTable();
+        $('#datatable-scroller').DataTable({
+            ajax: "js/datatables/json/scroller-demo.json",
+            deferRender: true,
+            scrollY: 380,
+            scrollCollapse: true,
+            scroller: true
+        });
+        var table = $('#datatable-fixed-header').DataTable({
+            fixedHeader: true
+        });
+
+    });
+    TableManageButtons.init();
+
+    function releaseretention() {
+        var link = "<?= $this->baseUrl() ?>/ajax/releaseretention";
+        var ca_no = document.getElementById("ca_no").value;
+        
+        var work_value = <?= $this->appdata['WORK_VALUE']; ?>;
+        var net_pay = <?= $sum_net; ?>;
+        var ret_amt = <?= $sum_ret ?>;
+        jQuery.ajax({
+            type: "POST",
+            url: link,
+            data: "work_value=" + work_value + "&net_pay=" + net_pay + "&ret_amt=" + ret_amt + "&ca_no=" + ca_no,
+            async: false,
+            success: function (msg) {
+                jQuery('#o_retention').html(msg);
+            }
+        });
+        
+    }
+    
+    function releaseinfo(){
+        
+        var link = "<?= $this->baseUrl() ?>/ajax/releaseinfo";
+        var ca_no = document.getElementById("ca_no").value;
+        jQuery.ajax({
+            type: "POST",
+            url: link,
+            data: "ca_no=" + ca_no,
+            async: false,
+            success: function (msg) {
+                jQuery('#o_releaseinfo').html(msg);
+            }
+        });
+    }
+
+//    $('form').submit(function (e) {
+//        e.preventDefault();
+//        var submit = true;
+//
+//        if (!document.getElementById('method').value) {
+//            alert('Enter a Method');
+//            submit = false;
+//            return false;
+//        }
+//
+//        if (!document.getElementById('p_bill_amt').value) {
+//            alert('Enter Bill Amount');
+//            submit = false;
+//            return false;
+//        }
+//        alert("HI");
+//        //submit = checkvalue(document.getElementById('p_bill_amt').value);
+//        if (!submit)
+//            return false;
+//
+//        if (submit) {
+//            var stat = confirm("Create a Contract Agreement?");
+//            if (stat)
+//                this.submit();
+//        }
+//        return false;
+//    });
+
+
+    
+
+    function number2text(value) {
+        var fraction = Math.round(frac(value) * 100);
+        var f_text = "";
+        if (fraction > 0) {
+            f_text = "AND " + convert_number(fraction) + " POYSA";
+        }
+        document.getElementById("in_words").value = convert_number(value) + " TAKA " + f_text + " ONLY";
+    }
+
+
+    function number2text2(value) {
+        var fraction = Math.round(frac(value) * 100);
+        var f_text = "";
+        if (fraction > 0) {
+            f_text = "AND " + convert_number(fraction) + " POYSA";
+        }
+        document.getElementById("in_words_2").value = convert_number(value) + " TAKA " + f_text + " ONLY";
+    }
+
+    function frac(f) {
+        return f % 1;
+    }
+
+    function convert_number(number)
+    {
+        if ((number < 0) || (number > 999999999))
+        {
+            return "NUMBER OUT OF RANGE!";
+        }
+        var Gn = Math.floor(number / 10000000); /* Crore */
+        number -= Gn * 10000000;
+        var kn = Math.floor(number / 100000); /* lakhs */
+        number -= kn * 100000;
+        var Hn = Math.floor(number / 1000); /* thousand */
+        number -= Hn * 1000;
+        var Dn = Math.floor(number / 100); /* Tens (deca) */
+        number = number % 100; /* Ones */
+        var tn = Math.floor(number / 10);
+        var one = Math.floor(number % 10);
+        var res = "";
+        if (Gn > 0)
+        {
+            res += (convert_number(Gn) + " KOTI");
+        }
+        if (kn > 0)
+        {
+            res += (((res == "") ? "" : " ") +
+                    convert_number(kn) + " LAKH");
+        }
+        if (Hn > 0)
+        {
+            res += (((res == "") ? "" : " ") +
+                    convert_number(Hn) + " THOUSAND");
+        }
+
+        if (Dn)
+        {
+            res += (((res == "") ? "" : " ") +
+                    convert_number(Dn) + " HUNDRED");
+        }
+
+
+        var ones = Array("", "ONE", "TWO", "THREE", "FOUR", "FIVE", "SIX", "SEVEN", "EIGHT", "NINE", "TEN", "ELEVEN", "TWELVE", "THIRTEEN", "FOURTEEN", "FIFTEEN", "SIXTEEN", "SEVENTEEN", "EIGHTEEN", "NINETEEN");
+        var tens = Array("", "", "TWENTY", "THIRTY", "FOURTY", "FIFTY", "SIXTY", "SEVENTY", "EIGHTY", "NINETY");
+        if (tn > 0 || one > 0)
+        {
+            if (!(res == ""))
+            {
+                res += " AND ";
+            }
+            if (tn < 2)
+            {
+                res += ones[tn * 10 + one];
+            }
+            else
+            {
+
+                res += tens[tn];
+                if (one > 0)
+                {
+                    res += ("-" + ones[one]);
+                }
+            }
+        }
+
+        if (res == "")
+        {
+            res = "zero";
+        }
+        return res;
+    }
+
+    function loadmodal(bill_id) {
+        var link = "<?= $this->baseUrl() ?>/ajax/newbill";
+        var ca_no = document.getElementById("ca_no").value;
+        jQuery.ajax({
+            type: "POST",
+            url: link,
+            data: "bill_id=" + bill_id + "&ca_no=" + ca_no,
+            async: false,
+            success: function (msg) {
+                jQuery('#o_newbill').html(msg);
+            }
+        });
+    }
+
+    function finalizebill(bill_id, amount) {
+        var link = "<?= $this->baseUrl() ?>/ajax/finalizebill";
+        var ca_no = document.getElementById("ca_no").value;
+        var work_value = document.getElementById("work_value").value;
+
+        jQuery.ajax({
+            type: "POST",
+            url: link,
+            data: "bill_id=" + bill_id + "&ca_no=" + ca_no + "&work_value=" + work_value + "&amt=" + amount,
+            async: false,
+            success: function (msg) {
+                jQuery('#o_finalizebill').html(msg);
+            }
+        });
+    }
+
+</script>
+
+
+

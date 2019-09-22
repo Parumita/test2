@@ -1,0 +1,188 @@
+<?php
+$user_name = Zend_Registry::get('USER_NAME');
+$user_type_id = Zend_Registry::get('USER_TYPE_ID');
+$user_id = Zend_Registry::get('USER_ID');
+$fiscal_yr = Zend_Registry::get('FISCAL_YR');
+?> 
+
+
+<div class="col-md-3 left_col">
+    <div class="left_col scroll-view">
+
+        <div class="navbar nav_title" style="border: 0;">
+            <?php if ($user_type_id == 1) { ?>
+                <a href="<?= $this->baseUrl(); ?>/Admin/index" class="site_title"> <img height="42" width="42" src="<?php echo $this->baseUrl(); ?>/img/gov_logo_small.png" alt=""><span> Dashboard</span></a>
+            <?php } else if ($user_type_id == 2 or $user_type_id == 3 or $user_type_id == 4) { ?>
+                <a href="<?= $this->baseUrl(); ?>/Staff/index" class="site_title"> <img height="42" width="42" src="<?php echo $this->baseUrl(); ?>/img/gov_logo_small.png" alt=""><span> Dashboard</span></a>
+            <?php } ?>
+        </div>
+        <div class="clearfix"></div>
+
+        <br />
+
+        <!-- sidebar menu -->
+        <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+            <?php if ($user_type_id == 1) { ?>
+                <div class="menu_section">
+
+                    <ul class="nav side-menu">
+                        <li>
+                            <a><i class="fa fa-user"></i> APP Management <span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu" style="display: none">
+                                <li><a href="<?= $this->baseUrl(); ?>/Admin/sectormanage">Sector Management</a>
+                                </li>
+                                <li><a href="<?= $this->baseUrl(); ?>/Admin/proctypemanage">Procurement Nature Management</a>
+                                </li>
+
+                                <li><a href="<?= $this->baseUrl(); ?>/Admin/procmethodmanage">Procurement Method Management</a>
+                                </li>
+                                <li><a href="<?= $this->baseUrl(); ?>/Admin/approveauthmanage">Approval Authority Management</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a><i class="fa fa-user"></i> Staff Management <span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu" style="display: none">
+                                <li><a href="<?= $this->baseUrl(); ?>/Admin/createupdatestaff">Create New Staff</a>
+                                </li>
+                                <li><a href="<?= $this->baseUrl(); ?>/Admin/updatestaff">Update Existing Staff</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a><i class="fa fa-user-plus"></i> Contractor Management <span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu" style="display: none">
+                                <li><a href="<?= $this->baseUrl(); ?>/Admin/createupdatecontractor">Create New Profile</a>
+                                </li>
+                                <li><a href="<?= $this->baseUrl(); ?>/Admin/updatecontractor">Update Existing Profile</a>
+                                </li> 
+                            </ul>
+                        </li>
+
+
+
+                    </ul>
+                </div>
+            <?php } else if ($user_type_id == 3) { ?>
+                <ul class="nav side-menu">
+                    <li><a a href="<?= $this->baseUrl(); ?>/Staff/createcontractagree"><i class="fa fa-file-text-o"></i>New Contract Agreement</a>
+                    </li>
+
+                    <li><a ><i class="fa fa-user"></i> Pending APP <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu" style="display: none">
+                            <?php foreach ($fiscal_yr as $year) { ?>
+                                <li><a href="<?= $this->baseUrl(); ?>/Staff/applist?id=<?= $year['FISCAL_YR_ID'] ?>">FISCAL YEAR:<?= $year['START_YEAR'] ?>-<?= $year['END_YEAR'] ?></a>
+                                </li>
+                            <?php } ?>
+                        </ul>
+                    </li>
+
+                    <li><a ><i class="fa fa-user"></i> Approved APP <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu" style="display: none">
+                            <?php foreach ($fiscal_yr as $year) { ?>
+                                <li><a href="<?= $this->baseUrl(); ?>/Staff/fnapplist?id=<?= $year['FISCAL_YR_ID'] ?>">FISCAL YEAR:<?= $year['START_YEAR'] ?>-<?= $year['END_YEAR'] ?></a>
+                                </li>
+                            <?php } ?>
+                        </ul>
+                    </li>
+
+                    <li><a><i class="fa fa-user-plus"></i> DPP Project <span class="fa fa-chevron-down"></span></a>
+
+                    </li>
+
+
+                </ul>
+            <?php } else if ($user_type_id == 4) { ?>
+                <ul class="nav side-menu">
+
+                    <li><a ><i class="fa fa-tasks "></i> Pending APP <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu" style="display: none">
+                            <?php foreach ($fiscal_yr as $year) { ?>
+                                <li><a href="<?= $this->baseUrl(); ?>/Staff/applist?id=<?= $year['FISCAL_YR_ID'] ?>">FISCAL YEAR:<?= $year['START_YEAR'] ?>-<?= $year['END_YEAR'] ?></a>
+                                </li>
+                            <?php } ?>
+                        </ul>
+                    </li>
+
+                    <li><a ><i class="fa fa-file-archive-o"></i> Finalized Payment Security</a>
+                        <ul class="nav child_menu" style="display: none">
+                            <?php foreach ($fiscal_yr as $year) { ?>
+                                <li><a href="<?= $this->baseUrl(); ?>/Staff/fnapplist?id=<?= $year['FISCAL_YR_ID'] ?>">FISCAL YEAR:<?= $year['START_YEAR'] ?>-<?= $year['END_YEAR'] ?></a>
+                                </li>
+                            <?php } ?>
+                        </ul>
+                    </li>
+
+                    <li><a ><i class="fa fa-lock"></i> Finalized APP <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu" style="display: none">
+                            <?php foreach ($fiscal_yr as $year) { ?>
+                                <li><a href="<?= $this->baseUrl(); ?>/Staff/approvlist?id=<?= $year['FISCAL_YR_ID'] ?>">FISCAL YEAR:<?= $year['START_YEAR'] ?>-<?= $year['END_YEAR'] ?></a>
+                                </li>
+                            <?php } ?>
+                        </ul>
+                    </li>
+                    <li><a><i class="fa fa-user-plus"></i> DPP Project <span class="fa fa-chevron-down"></span></a>
+
+                    </li>
+
+
+                    <li><a ><i class="fa fa-calculator "></i>Bill Management <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu" style="display: none">
+                            <li><a href="<?= $this->baseUrl(); ?>/Staff/instalment"><i class="fa fa-pie-chart "></i>Instalment Management</a>
+
+                            </li>
+                            <li><a href="<?= $this->baseUrl(); ?>/Staff/runningbill"><i class="fa fa-star-half-full "></i>Running Bill Management</a>
+
+                            </li>
+                        </ul>
+                    </li>
+
+
+
+                </ul>
+            <?php } else if ($user_type_id == 2) { ?>
+                <ul class="nav side-menu">
+
+                    <li><a ><i class="fa fa-user"></i> APP APPLICATIONS<span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu" style="display: none">
+                            <?php foreach ($fiscal_yr as $year) { ?>
+                                <li><a href="<?= $this->baseUrl(); ?>/Staff/exapplist?id=<?= $year['FISCAL_YR_ID'] ?>">FISCAL YEAR:<?= $year['START_YEAR'] ?>-<?= $year['END_YEAR'] ?></a>
+                                </li>
+                            <?php } ?>
+                        </ul>
+                    </li>
+
+    <!--                    <li><a ><i class="fa fa-user"></i> Approved APP <span class="fa fa-chevron-down"></span></a>
+        <ul class="nav child_menu" style="display: none">
+                    <?php foreach ($fiscal_yr as $year) { ?>
+                    <li><a href="<?= $this->baseUrl(); ?>/Staff/fnapplist?id=<?= $year['FISCAL_YR_ID'] ?>">FISCAL YEAR:<?= $year['START_YEAR'] ?>-<?= $year['END_YEAR'] ?></a>
+                    </li>
+                    <?php } ?>
+        </ul>
+    </li>-->
+                    <li><a><i class="fa fa-user-plus"></i> DPP APPLICATIONS <span class="fa fa-chevron-down"></span></a>
+
+                    </li>
+
+
+                </ul>
+            <?php } ?>
+        </div>
+        <!-- /sidebar menu -->
+
+        <!-- /menu footer buttons -->
+        <div class="sidebar-footer hidden-small">
+            <a data-toggle="tooltip" data-placement="top" title="Settings">
+                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+            </a>
+            <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+            </a>
+            <a data-toggle="tooltip" data-placement="top" title="Lock">
+                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+            </a>
+            <a data-toggle="tooltip" data-placement="top" title="Logout">
+                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+            </a>
+        </div>
+        <!-- /menu footer buttons -->
+    </div>
+</div>
